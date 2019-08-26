@@ -1,0 +1,111 @@
+{
+  "name": "xl-editor",
+  "version": "0.0.1-beta.1",
+  "description": "the rich text editor for react",
+  "author": "Rhys Xia",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "libaray"
+  ],
+  "main": "js/index.js",
+  "types": "js/index.d.ts",
+  "module": "es/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xl-vision/xl-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xl-vision/xl-editor/issues"
+  },
+  "homepage": "https://xl-vision.github.io/xl-editor/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
+  "scripts": {
+    "lint:es": "xl-scripts lint:es --dirs src,site,script",
+    "lint:style": "xl-scripts lint:style",
+    "lint": "npm run lint:es && npm run lint:style",
+    "compile:es": "xl-scripts compile:js --isEs --dest es && xl-scripts compile:style --dest es",
+    "compile:lib": "xl-scripts compile:js && xl-scripts compile:style --dest lib",
+    "compile": "npm run compile:es && npm run compile:lib",
+    "dist": "xl-scripts bundle",
+    "dev": "xl-scripts site --dev",
+    "docs": "xl-scripts site --publicPath /xl-editor/",
+    "test": "jest",
+    "icon": "node script/icon/generate.js",
+    "release": "node script/release.js",
+    "prepublishOnly": "node script/checkPublish.js"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/enquire.js": "^2.1.1",
+    "@types/enzyme": "^3.9.4",
+    "@types/jest": "^24.0.11",
+    "@types/prop-types": "^15.7.1",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/slate": "^0.47.1",
+    "@types/slate-react": "^0.22.5",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.24",
+    "chalk": "^2.4.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "fs-extra": "^7.0.1",
+    "highlight.js": "^9.15.10",
+    "husky": "^2.3.0",
+    "inquirer": "^6.3.1",
+    "jest": "^24.7.1",
+    "prettier": "^1.18.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-router-dom": "^5.0.0",
+    "semver": "^6.0.0",
+    "shelljs": "^0.8.3",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-prettier": "^1.1.1",
+    "stylelint-scss": "^3.9.4",
+    "ts-jest": "^24.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "classnames": "^2.2.6",
+    "immutable": "^4.0.0-rc.12",
+    "prop-types": "^15.7.2",
+    "slate": "^0.47.7",
+    "slate-react": "^0.22.7",
+    "xl-vision": "^0.0.2-beta.56"
+  },
+  "peerDependencies": {
+    "react": "^16.8.2"
+  },
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*"
+  ]
+}
